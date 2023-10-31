@@ -1,1 +1,3 @@
-# Shea 254
+# ECommerce
+
+ECommerce web app built using Django.
