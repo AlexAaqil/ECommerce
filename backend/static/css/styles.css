@@ -34,4 +34,10 @@
   text-decoration: none;
   background: green;
   color: #000;
+}
+
+.Auth {
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=styles.css.map */

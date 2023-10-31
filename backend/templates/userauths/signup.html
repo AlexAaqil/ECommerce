@@ -12,28 +12,34 @@
                         </div>
                     {% endif %}
 
-                    <h4 class="text-center">Signup Here!!!</h4>
+                    <h5 class="text-center">Signup</h5>
 
                     <form action="" method="post">
                         {% csrf_token %}
 
-                        <div class="mb-3">
+                        <div class="form-floating mb-3">
                             {{ form.username }}
+                            <label for="username">Username</label>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="form-floating mb-3">
                             {{ form.email }}
+                            <label for="email">Email</label>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="form-floating mb-3">
                             {{ form.password1 }}
+                            <label for="password1">Password</label>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="form-floating mb-3">
                             {{ form.password2 }}
+                            <label for="password2">Confirm Password</label>
                         </div>
 
-                        <button type="submit" class="btn btn-success">Signup</button>
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-success">Signup</button>
+                        </div>
                     </form>
 
                     <p class="text-center">Already have an account? <a href="{% url 'userauths:login' %}">Login</a></p>

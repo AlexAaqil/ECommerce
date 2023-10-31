@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from userauths.forms import UserSignupForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.conf import settings
 
@@ -54,3 +54,8 @@ def login_view(request):
 
     return render(request, 'userauths/login.html')
 
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You've logged out. Would you like to log in again?")
+    return redirect("userauths:login")
