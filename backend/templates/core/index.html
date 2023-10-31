@@ -1,17 +1,28 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Ecommerce</title>
-</head>
-<body>
-    <main>
-        <section class="Hero">
-            <h1>Shop Today</h1>
-        </section>
-    </main>
-</body>
-</html>
+{% extends 'partials/base.html' %} {% block body_content %}
+
+<section class="Home">
+  <header>
+    <nav>
+      <a href="#" class="brand">ECommerce</a>
+      <ul>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="{% url 'userauths:login' %}">Login</a></li>
+      </ul>
+      <span>Cart</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="Hero">
+      <div class="hero_content">
+        <h1>ECommerce</h1>
+        <a href="#">Shop Now</a>
+      </div>
+    </section>
+  </main>
+</section>
+
+{% endblock body_content %}

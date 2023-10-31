@@ -2,4 +2,36 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: helvetica, sans-serif, arial;
+}
+
+.Home header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+  border-bottom: 1px solid grey;
+}
+.Home header nav a {
+  color: #000;
+  text-decoration: none;
+}
+.Home header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0 1em;
+}
+.Home .Hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 0 2em;
+}
+.Home .Hero .hero_content h1 {
+  font-size: 5em;
+}
+.Home .Hero .hero_content a {
+  text-decoration: none;
+  background: green;
+  color: #000;
 }/*# sourceMappingURL=styles.css.map */

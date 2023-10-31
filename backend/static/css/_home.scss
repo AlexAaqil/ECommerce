@@ -1,0 +1,41 @@
+.Home {
+  header {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em 2em;
+      border-bottom: 1px solid grey;
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 0 1em;
+      }
+    }
+  }
+
+  .Hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 0 2em;
+
+    .hero_content {
+      h1 {
+        font-size: 5em;
+      }
+
+      a {
+        text-decoration: none;
+        background: green;
+        color: #000;
+      }
+    }
+  }
+}

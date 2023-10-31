@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 
     # custom apps
     'core',
+    'userauths',
 ]
 
 MIDDLEWARE = [
@@ -134,10 +136,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Shea254",
-    "site_header": "Shea254",
-    "site_brand": "Shea254",
+    "site_title": "ECommerce",
+    "site_header": "ECommerce",
+    "site_brand": "ECommerce",
     "site_icon": "/images/site_icon.ico",
     "site_logo": "/images/site_icon.ico",
-    "copyright" : "shea254.com",
+    "copyright" : "ECommerce.com",
 }
+
+
+AUTH_USER_MODEL = 'userauths.User'
