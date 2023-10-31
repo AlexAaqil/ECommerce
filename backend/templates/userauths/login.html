@@ -6,7 +6,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-5">
+                    {% include 'partials/messages.html' %}
                     <h5 class="text-center">Login</h5>
+                    
                     <form action="" method="post">
                         {% csrf_token %}
 

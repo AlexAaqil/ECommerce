@@ -2,10 +2,7 @@ from django.shortcuts import render, redirect
 from userauths.forms import UserSignupForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
-from django.conf import settings
-
-
-User = settings.AUTH_USER_MODEL
+from .models import User
 
 
 def signup_view(request):
@@ -40,22 +37,21 @@ def login_view(request):
 
         try:
             user = User.objects.get(email=email)
+            user = authenticate(request, email=email, password=password)
+
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Successfully logged in!")
+                return redirect("core:index")
+            else:
+                messages.warning(request, "User does not exist, create an account!")
         except:
             messages.warning(request, f"User with {email} does not exist")
-
-        user = authenticate(request, email=email, password=password)
-
-        if user is not None:
-            login(request, user)
-            messages.success(request, "Successfully logged in!")
-            return redirect("core:index")
-        else:
-            messages.warning(request, "User does not exist, create an account!")
 
     return render(request, 'userauths/login.html')
 
 
 def logout_view(request):
     logout(request)
-    messages.success(request, "You've logged out. Would you like to log in again?")
+    messages.success(request, "You've logged out. Login again to continue shopping.")
     return redirect("userauths:login")

@@ -6,12 +6,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6">
-                    {% if form.errors %}
-                        <div class="alert alert-danger">
-                            <strong>{{ form.errors }}</strong>
-                        </div>
-                    {% endif %}
-
+                    {% include 'partials/messages.html' %}
                     <h5 class="text-center">Signup</h5>
 
                     <form action="" method="post">
