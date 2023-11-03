@@ -3,7 +3,7 @@
     nav {
       display: flex;
       justify-content: space-between;
-      padding: 1em 2em;
+      padding: 0.5em 2em;
       border-bottom: 1px solid grey;
 
       a {
@@ -25,16 +25,23 @@
     display: flex;
     align-items: center;
     padding: 0 2em;
+    background: rgb(244,190,24);
 
     .hero_content {
       h1 {
-        font-size: 5em;
+        font-size: 5.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+        letter-spacing: 0.5px;
+
+        &:nth-of-type(2) {
+            font-size: 6em;
+        }
       }
 
-      a {
-        text-decoration: none;
-        background: green;
-        color: #000;
+      p {
+        font-size: 1.3em;
       }
     }
   }

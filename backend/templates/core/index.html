@@ -22,10 +22,40 @@
   <main>
     {% include 'partials/messages.html' %}
     <section class="Hero">
-      <div class="hero_content">
+      <div class="container hero_content">
         <h1>ECommerce</h1>
-        <a href="#">Shop Now</a>
+        <h1>Shop</h1>
+        <p>Shop the easy peasy way</p>
       </div>
+    </section>
+
+    <section class="Products container pt-5">
+        <h2>Popular Products</h2>
+        <div class="products_wrapper">
+            {% for product in products %}
+            <div class="product border">
+                <div class="image text-center">
+                    <img src="{{ product.image.url }}" height="200" />
+                </div>
+
+                <div class="text p-3">
+                    <p class="m-0"><b>{{ product.title }}</b></p>
+                    <p class="m-0">{{ product.rating }}</p>
+                    <p class="m-0">by {{ product.vendor.title }}</p>
+                    <div class="footer row align-items-center mt-2">
+                        <div class="col">
+                            <span class="text-success"><b>${{ product.price }}</b></span>
+                            <span><i>${{ product.old_price }}</i></span>
+                        </div>
+
+                        <div class="col text-center">
+                            <span class="btn btn-sm btn-success">Add</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </section>
   </main>
 </section>

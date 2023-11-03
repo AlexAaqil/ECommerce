@@ -8,7 +8,7 @@
 .Home header nav {
   display: flex;
   justify-content: space-between;
-  padding: 1em 2em;
+  padding: 0.5em 2em;
   border-bottom: 1px solid grey;
 }
 .Home header nav a {
@@ -26,18 +26,33 @@
   display: flex;
   align-items: center;
   padding: 0 2em;
+  background: rgb(244, 190, 24);
 }
 .Home .Hero .hero_content h1 {
-  font-size: 5em;
+  font-size: 5.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
-.Home .Hero .hero_content a {
-  text-decoration: none;
-  background: green;
-  color: #000;
+.Home .Hero .hero_content h1:nth-of-type(2) {
+  font-size: 6em;
+}
+.Home .Hero .hero_content p {
+  font-size: 1.3em;
 }
 
 .Auth {
   height: 100vh;
   display: flex;
   align-items: center;
+}
+
+.Products .products_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+.Products .products_wrapper .product {
+  border-radius: 12px;
 }/*# sourceMappingURL=styles.css.map */
