@@ -1,0 +1,32 @@
+{% extends 'partials/base.html' %}
+{% block body_content %}
+
+<section class="Categories">
+  {% include 'partials/navbar.html' %}
+
+  <main>
+    {% include 'partials/messages.html' %}
+
+    <section class="Products pt-5">
+        <h5>We have {{ categories.count }} categories you can browser</h5>
+        <div class="container">
+            <div class="row">
+                {% for category in categories %}
+                <div class="col border text-center category">
+                    <div class="image">
+                        <img src="{{ category.image.url }}" height="200" />
+                    </div>
+
+                    <div class="text p-3">
+                        <p class="m-0"><b>{{ category.title }}</b></p>
+                        <p class="m-0">{{ category.product_count }} product{{ category.product_count|pluralize:"s" }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+  </main>
+</section>
+
+{% endblock body_content %}

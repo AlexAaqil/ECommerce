@@ -1,21 +1,15 @@
-{% extends 'partials/base.html' %} {% block body_content %}
+{% extends 'partials/base.html' %}
+{% block body_content %}
 
-<section class="Home">
+<section class="Products">
   {% include 'partials/navbar.html' %}
 
   <main>
     {% include 'partials/messages.html' %}
-    <section class="Hero">
-      <div class="container hero_content">
-        <h1>ECommerce</h1>
-        <h1>Shop</h1>
-        <p>Shop the easy peasy way</p>
-      </div>
-    </section>
 
-    <section class="Products container pt-5">
-        <h2>Popular Products</h2>
-        <div class="products_wrapper">
+    <section class="Products pt-5">
+        <h5>We have {{ products.count }} products you can browser</h5>
+        <div class="container products_wrapper">
             {% for product in products %}
             <div class="product border">
                 <div class="image text-center">
