@@ -2,8 +2,16 @@
     <nav>
       <a href="{% url 'core:index' %}" class="brand">ECommerce</a>
       <ul>
-        <li><a href="{% url 'core:product_list' %}">Products</a></li>
-        <li><a href="{% url 'core:category_list' %}">Categories</a></li>
+        <li>
+            <a href="{% url 'core:product_list' %}">Products</a>
+            <ul>
+                {% for category in categories %}
+                    <li><a href="{% url 'core:category_product_list' category.cid %}">{{ category.title }}</a></li>
+                {% endfor %}
+                <hr>
+                <a href="{% url 'core:category_list' %}">View All Categories</a>
+            </ul>
+        </li>
         <li><a href="#">Shop</a></li>
         <li><a href="#">FAQ</a></li>
         <li><a href="#">Blog</a></li>
