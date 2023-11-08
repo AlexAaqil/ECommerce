@@ -5,22 +5,23 @@
   font-family: helvetica, sans-serif, arial;
 }
 
-.Home header nav {
+header nav {
   display: flex;
   justify-content: space-between;
   padding: 0.5em 2em;
   border-bottom: 1px solid grey;
 }
-.Home header nav a {
+header nav a {
   color: #000;
   text-decoration: none;
 }
-.Home header nav ul {
+header nav ul {
   list-style: none;
   display: flex;
   justify-content: space-evenly;
   gap: 0 1em;
 }
+
 .Home .Hero {
   height: 90vh;
   display: flex;
