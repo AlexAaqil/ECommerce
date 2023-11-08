@@ -13,7 +13,9 @@
             {% for product in products %}
             <div class="product border">
                 <div class="image text-center">
-                    <img src="{{ product.image.url }}" height="200" />
+                    <a href="{% url 'core:product_detail' product.pid %}">
+                        <img src="{{ product.image.url }}" height="200" />
+                    </a>
                 </div>
 
                 <div class="text p-3">

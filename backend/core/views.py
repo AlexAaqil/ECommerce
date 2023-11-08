@@ -23,6 +23,20 @@ def product_list_view(request):
     return render(request, 'core/product_list.html', context)
 
 
+def product_detail_view(request, pid):
+    product = Product.objects.get(pid=pid)
+    product_images = product.product_images.all()
+    related_products = Product.objects.filter(category=product.category).exclude(pid=pid)[:4]
+
+    context = {
+        "product" : product,
+        "product_images" : product_images,
+        "related_products" : related_products,
+    }
+
+    return render(request, "core/product_detail.html", context)
+
+
 def category_list_view(request):
     categories = Category.objects.annotate(product_count=Count('product'))
 

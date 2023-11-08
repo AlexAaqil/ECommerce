@@ -1,0 +1,55 @@
+{% extends 'partials/base.html' %}
+{% block body_content %}
+
+<section class="Products">
+  {% include 'partials/navbar.html' %}
+
+  <main>
+    {% include 'partials/messages.html' %}
+
+    <section class="Products pt-5">
+        <h5>Product Details</h5>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="image text-center">
+                        <img src="{{ product.image.url }}" height="200" />
+                    </div>
+                    <div class="images_slider d-flex p-2">
+                        {% for image in product_images %}
+                            <img src="{{ image.images.url }}" alt="Product" width="120" class="ml-2">
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h4>{{ product.title }}</h4>
+                    <p>{{ product.description|truncatechars:100 }}</p>
+                    <p>$ {{ product.price }}</p>
+                    <form action="">
+                        <input type="number" name="" id="" />
+                    </form>
+                    <p>Cart</p>
+                </div>
+            </div>
+
+            {% if related_products %}
+                <h5>Related Products</h5>
+            {% endif %}
+            <div class="container">
+                <div class="row">
+                    {% for related in related_products %}
+                    <div class="col">
+                        <img src="{{ related.image.url }}" alt="Related Product">
+                        <p>{{ related.title }}</p>
+                        <p>{{ related.price }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+</section>
+
+{% endblock body_content %}
