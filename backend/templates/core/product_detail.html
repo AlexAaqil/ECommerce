@@ -7,13 +7,13 @@
   <main>
     {% include 'partials/messages.html' %}
 
-    <section class="Products pt-5">
-        <h5>Product Details</h5>
+    <section class="ProductDetails pt-5">        
         <div class="container">
+            <h3>Product Details</h3>
             <div class="row">
-                <div class="col">
+                <div class="col col-lg-5">
                     <div class="image text-center">
-                        <img src="{{ product.image.url }}" height="200" />
+                        <img src="{{ product.image.url }}" height="320" />
                     </div>
                     <div class="images_slider d-flex p-2">
                         {% for image in product_images %}
@@ -22,30 +22,50 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col col-lg-7">
                     <h4>{{ product.title }}</h4>
                     <p>{{ product.description|truncatechars:100|safe }}</p>
                     <p>$ {{ product.price }}</p>
-                    <form action="">
-                        <input type="number" name="" id="" />
-                    </form>
-                    <p>Cart</p>
+                    <div class="d-flex align-items-center">
+                        <form action="">
+                            <input type="number" name="" id="" />
+                        </form>
+                        <span class="btn btn-sm btn-success ms-2"><i class="fa-solid fa-cart-shopping"></i></span>
+                    </div>                    
                 </div>
             </div>
 
             {% if related_products %}
-                <h5>Related Products</h5>
+                <h4 class="mt-5">Related Products</h4>
             {% endif %}
-            <div class="container">
-                <div class="row">
-                    {% for related in related_products %}
-                    <div class="col">
-                        <img src="{{ related.image.url }}" alt="Related Product">
-                        <p>{{ related.title }}</p>
-                        <p>{{ related.price }}</p>
+            <div class="products_wrapper">                
+                {% for related in related_products %}
+                <div class="product border">
+                    <div class="image text-center">
+                        <a href="{% url 'core:product_detail' related.pid %}">
+                            <img src="{{ related.image.url }}" height="200" />
+                        </a>
                     </div>
-                    {% endfor %}
+
+                    <div class="text p-3">
+                        <p class="m-0">{{ related.category }}</p>
+                        <p class="m-0">-{{ related.get_percentage|floatformat:0 }}%</p>
+                        <p class="m-0"><b><a class="text-dark" href="{% url 'core:product_detail' related.pid %}">{{ related.title }}</a></b></p>
+                        <p class="m-0">{{ related.rating }}</p>
+                        <p class="m-0">by {{ related.vendor.title }}</p>
+                        <div class="footer d-flex justify-content-between align-items-center">
+                            <div class="d-flex">
+                                <span class="text-success me-2"><b>${{ related.price }}</b></span>
+                                <span class="text-danger"><i><s>${{ related.old_price }}</s></i></span>
+                            </div>
+
+                            <div>
+                                <span class="btn btn-sm btn-success"><i class="fa-solid fa-cart-shopping"></i></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>

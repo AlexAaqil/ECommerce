@@ -1,11 +1,32 @@
 .Products {
-  .products_wrapper {
+  .products_wrapper,
+  .categories_wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1em;
 
-    .product {
+    .product, 
+    .category {
         border-radius: 12px;
+
+        .image {
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
     }
+  }
+}
+
+
+.ProductDetails {
+  .row {
+    .image {
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+  }
   }
 }

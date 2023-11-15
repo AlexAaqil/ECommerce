@@ -7,37 +7,10 @@
   <main>
     {% include 'partials/messages.html' %}
 
-    <section class="Products pt-5">
-        <h5>We have {{ products.count }} products you can browser</h5>
-        <div class="container products_wrapper">
-            {% for product in products %}
-            <div class="product border">
-                <div class="image text-center">
-                    <a href="{% url 'core:product_detail' product.pid %}">
-                        <img src="{{ product.image.url }}" height="200" />
-                    </a>
-                </div>
-
-                <div class="text p-3">
-                    <p class="m-0">{{ product.category }}</p>
-                    <p class="m-0">-{{ product.get_percentage|floatformat:0 }}%</p>
-                    <p class="m-0"><b>{{ product.title }}</b></p>
-                    <p class="m-0">{{ product.rating }}</p>
-                    <p class="m-0">by {{ product.vendor.title }}</p>
-                    <div class="footer row align-items-center mt-2">
-                        <div class="col">
-                            <span class="text-success"><b>${{ product.price }}</b></span>
-                            <span class="text-danger"><i><s>${{ product.old_price }}</s></i></span>
-                        </div>
-
-                        <div class="col text-center">
-                            <span class="btn btn-sm btn-success">Add</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+    <section class="Products container pt-5">
+        <h3>Products</h3>
+        <p>We have {{ products.count }} products you can browse</p>
+        {% include "partials/products.html" %}
     </section>
   </main>
 </section>
