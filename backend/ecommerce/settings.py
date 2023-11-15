@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # installed apps
+    'ckeditor',
 
     # custom apps
     'core',
@@ -147,3 +150,16 @@ JAZZMIN_SETTINGS = {
 
 
 AUTH_USER_MODEL = 'userauths.User'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Undo', 'Redo', 'EmojiPanel', 'TextColor', 'BGColor', 'Font', 'FontSize'],
+        ],
+        'removePlugins': 'flash,tabletools,scayt,menubutton,contextmenu',
+    },
+}
+

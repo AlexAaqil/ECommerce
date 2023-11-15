@@ -2,6 +2,7 @@ from django.db import models
 from shortuuid.django_fields import ShortUUIDField
 from django.utils.html import mark_safe
 from userauths.models import User
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 STATUS_CHOICE = (
@@ -54,7 +55,7 @@ class Vendor(models.Model):
     vid = ShortUUIDField(unique=True, length=10, max_length=20, prefix="ven", alphabet="abcdefg12345")
     title = models.CharField(max_length=100, default="Nestify")
     image = models.ImageField(upload_to=user_directory_path, default="vendor.jpg")
-    description = models.TextField(null=True, blank=True, default="Amazing vendor")
+    description = RichTextUploadingField(null=True, blank=True, default="Amazing vendor")
     address = models.CharField(max_length=100, default="123 Main Street.")
     contact = models.CharField(max_length=100, default="+254 754 255")
     chat_resp_time = models.CharField(max_length=100, default="100")
@@ -84,7 +85,7 @@ class Product(models.Model):
 
     title = models.CharField(max_length=100, default="Fresh Pear")
     image = models.ImageField(upload_to=user_directory_path, default="product.jpg")
-    description = models.TextField(null=True, blank=True, default="This is the product")
+    description = RichTextUploadingField(null=True, blank=True, default="This is the product")
 
     price = models.DecimalField(max_digits=999999999999, decimal_places=2, default="1.99")
     old_price = models.DecimalField(max_digits=999999999999, decimal_places=2, default="2.99")

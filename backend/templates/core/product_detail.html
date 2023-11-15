@@ -24,7 +24,7 @@
 
                 <div class="col">
                     <h4>{{ product.title }}</h4>
-                    <p>{{ product.description|truncatechars:100 }}</p>
+                    <p>{{ product.description|truncatechars:100|safe }}</p>
                     <p>$ {{ product.price }}</p>
                     <form action="">
                         <input type="number" name="" id="" />
