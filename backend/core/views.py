@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from .models import Product, Category
 from django.db.models import Count
 
@@ -57,3 +58,28 @@ def category_product_list_view(request, cid):
     }
 
     return render(request, "core/category_product_list.html", context)
+
+
+def add_to_cart(request):
+    cart_products = {
+
+    }
+    cart_products[str(request.GET['id'])] = {        
+        'quantity' : request.GET['quantity'],
+        'title' : request.GET['title'],
+        'price' : request.GET['price'],
+    }
+
+    if 'cart_data_obj' in request.session:
+        if str(request.GET['id']) in request.session['cart_data_obj']:
+            cart_data = request.session['cart_data_obj']
+            cart_data[str(request.GET['id'])]['quantity'] = int(cart_products[str(request.GET['id'])]['quantity'])
+            cart_data.update(cart_data)
+            request.session['cart_data_obj'] = cart_data
+        else:
+            cart_data = request.session['cart_data_obj']
+            cart_data.update(cart_products)
+            request.session['cart_data_obj'] = cart_data
+    else:
+        request.session['cart_data_obj'] = cart_products
+    return JsonResponse({"data":request.session['cart_data_obj'], 'total_cart_items':len(request.session['cart_data_obj'])})

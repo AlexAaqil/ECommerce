@@ -25,12 +25,12 @@
                 <div class="col col-lg-7">
                     <h4>{{ product.title }}</h4>
                     <p>{{ product.description|truncatechars:100|safe }}</p>
-                    <p>$ {{ product.price }}</p>
-                    <div class="d-flex align-items-center">
-                        <form action="">
-                            <input type="number" name="" id="" />
-                        </form>
-                        <span class="btn btn-sm btn-success ms-2"><i class="fa-solid fa-cart-shopping"></i></span>
+                    <p>$<span id="current_product_price">{{ product.price }}</span></p>
+                    <div class="d-flex align-items-center">                        
+                        <input type="number" name="product_quantity" id="product_quantity" value="1" />                                                
+                        <input type="hidden" name="product_id" id="product_id" value="{{ product.id }}">
+                        <input type="hidden" name="product_title" id="product_title" value="{{ product.title }}">
+                        <button type="submit" class="btn btn-sm btn-success ms-2" id="add_to_cart_btn"><i class="fa-solid fa-cart-shopping"></i></button>                        
                     </div>                    
                 </div>
             </div>
@@ -71,5 +71,7 @@
     </section>
   </main>
 </section>
+
+{% include "partials/jquery_scripts.html" %}
 
 {% endblock body_content %}

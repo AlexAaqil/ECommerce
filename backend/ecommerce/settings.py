@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # installed apps
     'ckeditor',
 
@@ -162,4 +162,3 @@ CKEDITOR_CONFIGS = {
         'removePlugins': 'flash,tabletools,scayt,menubutton,contextmenu',
     },
 }
-

@@ -12,6 +12,23 @@ header {
         text-decoration: none;
       }
 
+      .cart {
+        position: relative;   
+        font-size: 1.1em;     
+
+        .cart-badge {
+          position: absolute;               
+          top: -8px;
+          right: -5px;
+          padding: 2px 4px;
+          border-radius: 50%;
+          background-color: green;
+          color: white;
+          font-size: 0.5em;
+          font-weight: bold;
+        }
+      }
+
       ul {
         list-style: none;
         display: flex;

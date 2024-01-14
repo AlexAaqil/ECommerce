@@ -21,6 +21,15 @@
             <li><a href="{% url 'userauths:login' %}">Login</a></li>
         {% endif %}
       </ul>
-      <span><i class="fa-solid fa-cart-shopping"></i></span>
+      
+      <span class="cart"><i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-badge">
+            {% if request.session.cart_data_obj %}
+                {{ request.session.cart_data_obj|length }}
+            {% else %}
+                0
+            {% endif %}
+        </span>
+    </span>            
     </nav>
   </header>
